@@ -52,9 +52,6 @@
                     </goals>
                     <configuration>
                         <outputDirectory>${project.reporting.outputDirectory}/jacoco</outputDirectory>
-                        <formats>
-                            <format>xml</format>
-                        </formats>
                     </configuration>
                 </execution>
             </executions>
