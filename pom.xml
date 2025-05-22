@@ -31,4 +31,35 @@
         <maven.compiler.target>22</maven.compiler.target>
         <exec.mainClass>com.mycompany.ci.cdmkepl.CICDMKEPL</exec.mainClass>
     </properties>
+    <build>
+    <plugins>
+        <!-- JaCoCo for generating code coverage reports -->
+        <plugin>
+            <groupId>org.jacoco</groupId>
+            <artifactId>jacoco-maven-plugin</artifactId>
+            <version>0.8.8</version>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>prepare-agent</goal>
+                    </goals>
+                </execution>
+                <execution>
+                    <id>report</id>
+                    <phase>prepare-package</phase>
+                    <goals>
+                        <goal>report</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+
+        <!-- Codacy Coverage Reporter plugin (optional in pom, we mostly use bash script in CI) -->
+        <plugin>
+            <groupId>com.codacy</groupId>
+            <artifactId>codacy-coverage-reporter</artifactId>
+            <version>8.0.0</version>
+        </plugin>
+    </plugins>
+</build>
 </project>
